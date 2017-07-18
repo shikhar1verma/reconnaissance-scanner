@@ -24,9 +24,9 @@ def gather_info(name,url):                      #gathering the information throu
     ip_address = get_ip_address(domain_name)
     nmap = get_nmap('-F',ip_address)
 
-    create_report(name,url,domain_name,nmap,robotsTXT,whois)
+    create_report(name,url,domain_name,nmap,robotsTXT,whois,ip_address)
 
-def create_report(name,url,domain_name,nmap,robotsTXT,whois):   #put the gathered information in required files
+def create_report(name,url,domain_name,nmap,robotsTXT,whois,ip_address):   #put the gathered information in required files
     project_dir = root_dir + '/' + name
     create_dir(project_dir)
 
@@ -35,5 +35,6 @@ def create_report(name,url,domain_name,nmap,robotsTXT,whois):   #put the gathere
     write_file(project_dir + '/nmap.txt',nmap )
     write_file(project_dir + '/robots.txt',robotsTXT )
     write_file(project_dir + '/whois.txt',whois )
+    write_file(project_dir + '/ip_address.txt',ip_address )
 
 gather_info('google','https://www.google.com')                  #giving the input of website name and url
