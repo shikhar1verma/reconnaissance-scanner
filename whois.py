@@ -3,7 +3,7 @@
 import os
 
 def get_whois(url):
-    command = 'whois '+str(url)
+    command = 'whois'+str(url)
     process = os.popen(command)
     req = str(process.read())
     return req
